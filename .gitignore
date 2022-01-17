@@ -1,6 +1,5 @@
 *
 !*/
-!*.gitignore
 !*.rs
 !*.toml
 !*.md
