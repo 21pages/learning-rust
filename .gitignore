@@ -4,3 +4,4 @@
 !*.toml
 !*.md
 !*.html
+target/
