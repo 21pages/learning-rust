@@ -8,7 +8,7 @@ use std::{
 };
 
 pub struct TimerFuture {
-    shared_state: Arc<Mutex<SharedState>>,
+    shared_state: Arc<Mutex<SharedState>>,//由于是多线程环境，我们需要使用 Arc<Mutex<T>> 来作为一个共享状态
 }
 
 /// `future`与等待线程之间的共享状态

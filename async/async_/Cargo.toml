@@ -8,3 +8,7 @@ edition = "2021"
 [dependencies]
 futures = "0.3"
 hyper = "0.14"
+timer_future = { path = "libs/timer_future" }
+tokio = { version = "1.15", features = ["full"] }
+log = "0.4.14"
+env_logger = "0.9"
