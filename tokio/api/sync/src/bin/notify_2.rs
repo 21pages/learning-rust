@@ -1,8 +1,8 @@
+use std::{ops::Add, sync::Arc};
 use tokio::{
-    sync::Notify, 
-    time::{sleep_until, Instant, Duration}
+    sync::Notify,
+    time::{sleep_until, Duration, Instant},
 };
-use std::{sync::Arc, ops::Add};
 
 /*
 notify_waiters:
@@ -14,7 +14,7 @@ async fn main() {
     let notify = Arc::new(Notify::new());
     let notify2 = notify.clone();
 
-    let notified1 = notify.notified();
+    let notified1 = notify.notified(); //这里是注册, 注册过的都会被通知到
     let notified2 = notify.notified();
 
     let _handle = tokio::spawn(async move {

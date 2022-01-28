@@ -13,32 +13,40 @@ If notify_one() is called multiple times before notified().await, only a single 
 */
 
 use std::{error::Error, sync::Arc};
-use tokio::{sync::Notify, time::{sleep, Duration}};
-
+use tokio::{
+    sync::Notify,
+    time::{sleep, Duration},
+};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     let notify1 = Arc::new(Notify::new());
     let notify2 = notify1.clone();
+    let notify3 = notify1.clone();
     tokio::spawn(async move {
-        println!("wait to be notified");
+        println!("1 wait to be notified");
         notify1.notified().await;
-        println!("notified");
+        println!("1 notified");
+
+        println!("2 wait to be notified");
+        notify2.notified().await; //这里将不会通过, 只会通知一个
+        println!("2 notified");
     });
     println!("before sleep");
     let _ = sleep(Duration::from_secs(1)).await; //别忘了await
     println!("after sleep");
-    // notify2.notify_one(); //one
+    notify3.notify_one(); //one
     println!("notify");
-    notify2.notify_waiters(); //all
+    // notify3.notify_waiters(); //all
 
     Ok(())
 }
 
 /*
 before sleep
-wait to be notified
+1 wait to be notified
 after sleep
 notify
-notified
+1 notified
+2 wait to be notified
 */
