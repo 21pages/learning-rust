@@ -15,8 +15,17 @@ async fn main() {
         if let Err(_) = tx.send(3) {
             println!("the receiver dropped");
         }
+        // if let Err(_) = tx.send(3) {
+        //     println!("the receiver dropped");
+        // }
     });
 
+    // for i in 0..2 {
+    //     match rx.await { //value moved here, in previous iteration of loop  
+    //     Ok(v) => println!("got = {:?}", v),
+    //     Err(_) => println!("the sender dropped"),
+    //     }
+    // }
     match rx.await {
         Ok(v) => println!("got = {:?}", v),
         Err(_) => println!("the sender dropped"),

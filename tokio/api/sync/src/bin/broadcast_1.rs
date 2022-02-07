@@ -6,18 +6,29 @@ use tokio::sync::broadcast;
 
 #[tokio::main]
 async fn main() {
-    let (tx , mut rx1) = broadcast::channel::<String>(16);
+    let (tx , _) = broadcast::channel::<String>(16);
+    // drop(rx);
+    let mut rx1 = tx.subscribe();
     let mut rx2 = tx.subscribe();
-    tokio::spawn(async move {
+    let mut task1 = tokio::spawn(async move {
         assert_eq!(rx1.recv().await.unwrap(), "hello".to_string());
         assert_eq!(rx1.recv().await.unwrap(), "world".to_string());
+        println!("1 ok");
     });
-    tokio::spawn(async move {
+    let mut task2 = tokio::spawn(async move {
         assert_eq!(rx2.recv().await.unwrap(), "hello".to_string());
         assert_eq!(rx2.recv().await.unwrap(), "world".to_string());
+        println!("2 ok");
     });
     let s1 = String::from("hello");
     tx.send(s1).unwrap();
     // println!("s1:{}", s1); //moved
     tx.send("world".into()).unwrap();
+
+    for _ in 0..2 {
+        tokio::select!{
+            _ = &mut task1 => {println!("task 1"); task1 = task1}, //重新赋值
+            _ = &mut task2 => {println!("task 2"); task2 = task2},
+        }
+    }
 }
