@@ -1,0 +1,27 @@
+syntax = "proto3";
+package test;
+
+message Msg1 {
+    oneof union {
+      int32 a = 1;
+    }
+    int32 b = 2;
+}
+
+message Msg2 {
+  oneof union {
+    int32 a = 1;
+    int32 c = 3;
+    int32 d = 4;
+  }
+  int32 b = 2;
+}
+
+message Msg3 {
+  oneof union {
+    int32 a = 1;
+    int32 c = 2;
+    int32 d = 3;
+  }
+  int32 b = 4;
+}
