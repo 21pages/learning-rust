@@ -5,4 +5,7 @@
 !*.md
 !*.html
 !*.proto
+!*.c
+!*.cc
+!*.cpp
 target/
