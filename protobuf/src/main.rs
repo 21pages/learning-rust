@@ -1,12 +1,13 @@
 use protobuf::Message;
 use protobuf_test::test;
 fn main() {
-    println!("test1");
-    test_1();
-    println!("test2");
-    test_2();
-    println!("test3");
-    test_3();
+    // println!("test1");
+    // test_1();
+    // println!("test2");
+    // test_2();
+    // println!("test3");
+    // test_3();
+    test_image_quality();
 }
 
 fn test_1() {
@@ -54,4 +55,18 @@ fn test_3() {
 
     let msg2 = test::Msg2::parse_from_bytes(&v);
     println!("msg2:{:?}", msg2);
+}
+
+fn test_image_quality() {
+    let mut msg_new = test::ImageQuality_Message_new::new();
+    msg_new.quality = test::ImageQuality_new::Balanced.into();
+    let v = msg_new.write_to_bytes().unwrap();
+    let msg_old = test::ImageQuality_Message_old::parse_from_bytes(&v).unwrap();
+    println!("msg_old: {:?}", msg_old.quality);
+
+    let mut msg_old = test::ImageQuality_Message_old::new();
+    msg_old.quality = test::ImageQuality_old::Balanced.into();
+    let v = msg_new.write_to_bytes().unwrap();
+    let msg_new = test::ImageQuality_Message_new::parse_from_bytes(&v).unwrap();
+    println!("msg_new: {:?}", msg_new.quality);
 }

@@ -781,6 +781,364 @@ pub mod msg3 {
     }
 }
 
+#[derive(PartialEq,Clone,Default)]
+pub struct ImageQuality_Message_old {
+    // message fields
+    pub quality: ::protobuf::ProtobufEnumOrUnknown<ImageQuality_old>,
+    // special fields
+    pub unknown_fields: ::protobuf::UnknownFields,
+    pub cached_size: ::protobuf::rt::CachedSize,
+}
+
+impl<'a> ::std::default::Default for &'a ImageQuality_Message_old {
+    fn default() -> &'a ImageQuality_Message_old {
+        <ImageQuality_Message_old as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl ImageQuality_Message_old {
+    pub fn new() -> ImageQuality_Message_old {
+        ::std::default::Default::default()
+    }
+
+    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
+        let mut fields = ::std::vec::Vec::new();
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "quality",
+            |m: &ImageQuality_Message_old| { &m.quality },
+            |m: &mut ImageQuality_Message_old| { &mut m.quality },
+        ));
+        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<ImageQuality_Message_old>(
+            "ImageQuality_Message_old",
+            3,
+            fields,
+        )
+    }
+}
+
+impl ::protobuf::Message for ImageQuality_Message_old {
+    fn is_initialized(&self) -> bool {
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        while !is.eof()? {
+            let (field_number, wire_type) = is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    self.quality = is.read_enum_or_unknown()?;
+                },
+                _ => {
+                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u32 {
+        let mut my_size = 0;
+        if self.quality != ::protobuf::ProtobufEnumOrUnknown::new(ImageQuality_old::NotSet) {
+            my_size += ::protobuf::rt::enum_or_unknown_size(1, self.quality);
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
+        self.cached_size.set(my_size);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        if self.quality != ::protobuf::ProtobufEnumOrUnknown::new(ImageQuality_old::NotSet) {
+            os.write_enum(1, ::protobuf::ProtobufEnumOrUnknown::value(&self.quality))?;
+        }
+        os.write_unknown_fields(self.get_unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn get_cached_size(&self) -> u32 {
+        self.cached_size.get()
+    }
+
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
+        &self.unknown_fields
+    }
+
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
+        &mut self.unknown_fields
+    }
+
+    fn new() -> ImageQuality_Message_old {
+        ImageQuality_Message_old::new()
+    }
+
+    fn descriptor_static() -> ::protobuf::reflect::MessageDescriptor {
+        ::protobuf::reflect::MessageDescriptor::new_generated_2(file_descriptor(), 3)
+    }
+
+    fn default_instance() -> &'static ImageQuality_Message_old {
+        static instance: ImageQuality_Message_old = ImageQuality_Message_old {
+            quality: ::protobuf::ProtobufEnumOrUnknown::from_i32(0),
+            unknown_fields: ::protobuf::UnknownFields::new(),
+            cached_size: ::protobuf::rt::CachedSize::new(),
+        };
+        &instance
+    }
+}
+
+impl ::protobuf::Clear for ImageQuality_Message_old {
+    fn clear(&mut self) {
+        self.quality = ::protobuf::ProtobufEnumOrUnknown::new(ImageQuality_old::NotSet);
+        self.unknown_fields.clear();
+    }
+}
+
+impl ::std::fmt::Debug for ImageQuality_Message_old {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for ImageQuality_Message_old {
+    type RuntimeType = ::protobuf::reflect::runtime_types::RuntimeTypeMessage<Self>;
+}
+
+#[derive(PartialEq,Clone,Default)]
+pub struct ImageQuality_Message_new {
+    // message fields
+    pub quality: ::protobuf::ProtobufEnumOrUnknown<ImageQuality_new>,
+    // special fields
+    pub unknown_fields: ::protobuf::UnknownFields,
+    pub cached_size: ::protobuf::rt::CachedSize,
+}
+
+impl<'a> ::std::default::Default for &'a ImageQuality_Message_new {
+    fn default() -> &'a ImageQuality_Message_new {
+        <ImageQuality_Message_new as ::protobuf::Message>::default_instance()
+    }
+}
+
+impl ImageQuality_Message_new {
+    pub fn new() -> ImageQuality_Message_new {
+        ::std::default::Default::default()
+    }
+
+    fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
+        let mut fields = ::std::vec::Vec::new();
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "quality",
+            |m: &ImageQuality_Message_new| { &m.quality },
+            |m: &mut ImageQuality_Message_new| { &mut m.quality },
+        ));
+        ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<ImageQuality_Message_new>(
+            "ImageQuality_Message_new",
+            4,
+            fields,
+        )
+    }
+}
+
+impl ::protobuf::Message for ImageQuality_Message_new {
+    fn is_initialized(&self) -> bool {
+        true
+    }
+
+    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        while !is.eof()? {
+            let (field_number, wire_type) = is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    self.quality = is.read_enum_or_unknown()?;
+                },
+                _ => {
+                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                },
+            };
+        }
+        ::std::result::Result::Ok(())
+    }
+
+    // Compute sizes of nested messages
+    #[allow(unused_variables)]
+    fn compute_size(&self) -> u32 {
+        let mut my_size = 0;
+        if self.quality != ::protobuf::ProtobufEnumOrUnknown::new(ImageQuality_new::NotSet) {
+            my_size += ::protobuf::rt::enum_or_unknown_size(1, self.quality);
+        }
+        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
+        self.cached_size.set(my_size);
+        my_size
+    }
+
+    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
+        if self.quality != ::protobuf::ProtobufEnumOrUnknown::new(ImageQuality_new::NotSet) {
+            os.write_enum(1, ::protobuf::ProtobufEnumOrUnknown::value(&self.quality))?;
+        }
+        os.write_unknown_fields(self.get_unknown_fields())?;
+        ::std::result::Result::Ok(())
+    }
+
+    fn get_cached_size(&self) -> u32 {
+        self.cached_size.get()
+    }
+
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
+        &self.unknown_fields
+    }
+
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
+        &mut self.unknown_fields
+    }
+
+    fn new() -> ImageQuality_Message_new {
+        ImageQuality_Message_new::new()
+    }
+
+    fn descriptor_static() -> ::protobuf::reflect::MessageDescriptor {
+        ::protobuf::reflect::MessageDescriptor::new_generated_2(file_descriptor(), 4)
+    }
+
+    fn default_instance() -> &'static ImageQuality_Message_new {
+        static instance: ImageQuality_Message_new = ImageQuality_Message_new {
+            quality: ::protobuf::ProtobufEnumOrUnknown::from_i32(0),
+            unknown_fields: ::protobuf::UnknownFields::new(),
+            cached_size: ::protobuf::rt::CachedSize::new(),
+        };
+        &instance
+    }
+}
+
+impl ::protobuf::Clear for ImageQuality_Message_new {
+    fn clear(&mut self) {
+        self.quality = ::protobuf::ProtobufEnumOrUnknown::new(ImageQuality_new::NotSet);
+        self.unknown_fields.clear();
+    }
+}
+
+impl ::std::fmt::Debug for ImageQuality_Message_new {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        ::protobuf::text_format::fmt(self, f)
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for ImageQuality_Message_new {
+    type RuntimeType = ::protobuf::reflect::runtime_types::RuntimeTypeMessage<Self>;
+}
+
+#[derive(Clone,Copy,PartialEq,Eq,Debug,Hash)]
+pub enum ImageQuality_old {
+    NotSet = 0,
+    Low = 2,
+    Balanced = 3,
+    Best = 4,
+}
+
+impl ::protobuf::ProtobufEnum for ImageQuality_old {
+    fn value(&self) -> i32 {
+        *self as i32
+    }
+
+    fn from_i32(value: i32) -> ::std::option::Option<ImageQuality_old> {
+        match value {
+            0 => ::std::option::Option::Some(ImageQuality_old::NotSet),
+            2 => ::std::option::Option::Some(ImageQuality_old::Low),
+            3 => ::std::option::Option::Some(ImageQuality_old::Balanced),
+            4 => ::std::option::Option::Some(ImageQuality_old::Best),
+            _ => ::std::option::Option::None
+        }
+    }
+
+    fn values() -> &'static [Self] {
+        static values: &'static [ImageQuality_old] = &[
+            ImageQuality_old::NotSet,
+            ImageQuality_old::Low,
+            ImageQuality_old::Balanced,
+            ImageQuality_old::Best,
+        ];
+        values
+    }
+
+    fn enum_descriptor_static() -> ::protobuf::reflect::EnumDescriptor {
+        ::protobuf::reflect::EnumDescriptor::new_generated_2(file_descriptor(), 0)
+    }
+}
+
+impl ::std::default::Default for ImageQuality_old {
+    fn default() -> Self {
+        ImageQuality_old::NotSet
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for ImageQuality_old {
+    type RuntimeType = ::protobuf::reflect::runtime_types::RuntimeTypeEnum<Self>;
+}
+
+impl ImageQuality_old {
+    fn generated_enum_descriptor_data() -> ::protobuf::reflect::GeneratedEnumDescriptorData {
+        ::protobuf::reflect::GeneratedEnumDescriptorData::new_2::<ImageQuality_old>("ImageQuality_old", 0)
+    }
+}
+
+#[derive(Clone,Copy,PartialEq,Eq,Debug,Hash)]
+pub enum ImageQuality_new {
+    NotSet = 0,
+    Low = 50,
+    Balanced = 66,
+    Best = 100,
+}
+
+impl ::protobuf::ProtobufEnum for ImageQuality_new {
+    fn value(&self) -> i32 {
+        *self as i32
+    }
+
+    fn from_i32(value: i32) -> ::std::option::Option<ImageQuality_new> {
+        match value {
+            0 => ::std::option::Option::Some(ImageQuality_new::NotSet),
+            50 => ::std::option::Option::Some(ImageQuality_new::Low),
+            66 => ::std::option::Option::Some(ImageQuality_new::Balanced),
+            100 => ::std::option::Option::Some(ImageQuality_new::Best),
+            _ => ::std::option::Option::None
+        }
+    }
+
+    fn values() -> &'static [Self] {
+        static values: &'static [ImageQuality_new] = &[
+            ImageQuality_new::NotSet,
+            ImageQuality_new::Low,
+            ImageQuality_new::Balanced,
+            ImageQuality_new::Best,
+        ];
+        values
+    }
+
+    fn enum_descriptor_static() -> ::protobuf::reflect::EnumDescriptor {
+        ::protobuf::reflect::EnumDescriptor::new_generated_2(file_descriptor(), 1)
+    }
+}
+
+impl ::std::default::Default for ImageQuality_new {
+    fn default() -> Self {
+        ImageQuality_new::NotSet
+    }
+}
+
+impl ::protobuf::reflect::ProtobufValue for ImageQuality_new {
+    type RuntimeType = ::protobuf::reflect::runtime_types::RuntimeTypeEnum<Self>;
+}
+
+impl ImageQuality_new {
+    fn generated_enum_descriptor_data() -> ::protobuf::reflect::GeneratedEnumDescriptorData {
+        ::protobuf::reflect::GeneratedEnumDescriptorData::new_2::<ImageQuality_new>("ImageQuality_new", 1)
+    }
+}
+
 static file_descriptor_proto_data: &'static [u8] = b"\
     \n\ntest.proto\x12\x04test\"5\n\x04Msg1\x12\x10\n\x01a\x18\x01\x20\x01(\
     \x05H\0R\x01aB\0\x12\x0e\n\x01b\x18\x02\x20\x01(\x05R\x01bB\0B\t\n\x05un\
@@ -790,7 +1148,15 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \0B\t\n\x05union\x12\0:\0\"Y\n\x04Msg3\x12\x10\n\x01a\x18\x01\x20\x01(\
     \x05H\0R\x01aB\0\x12\x10\n\x01c\x18\x02\x20\x01(\x05H\0R\x01cB\0\x12\x10\
     \n\x01d\x18\x03\x20\x01(\x05H\0R\x01dB\0\x12\x0e\n\x01b\x18\x04\x20\x01(\
-    \x05R\x01bB\0B\t\n\x05union\x12\0:\0B\0b\x06proto3\
+    \x05R\x01bB\0B\t\n\x05union\x12\0:\0\"P\n\x18ImageQuality_Message_old\
+    \x122\n\x07quality\x18\x01\x20\x01(\x0e2\x16.test.ImageQuality_oldR\x07q\
+    ualityB\0:\0\"P\n\x18ImageQuality_Message_new\x122\n\x07quality\x18\x01\
+    \x20\x01(\x0e2\x16.test.ImageQuality_newR\x07qualityB\0:\0*I\n\x10ImageQ\
+    uality_old\x12\x0c\n\x06NotSet\x10\0\x1a\0\x12\t\n\x03Low\x10\x02\x1a\0\
+    \x12\x0e\n\x08Balanced\x10\x03\x1a\0\x12\n\n\x04Best\x10\x04\x1a\0\x1a\0\
+    *I\n\x10ImageQuality_new\x12\x0c\n\x06NotSet\x10\0\x1a\0\x12\t\n\x03Low\
+    \x102\x1a\0\x12\x0e\n\x08Balanced\x10B\x1a\0\x12\n\n\x04Best\x10d\x1a\0\
+    \x1a\0B\0b\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -810,7 +1176,11 @@ pub fn file_descriptor() -> ::protobuf::reflect::FileDescriptor {
         messages.push(Msg1::generated_message_descriptor_data());
         messages.push(Msg2::generated_message_descriptor_data());
         messages.push(Msg3::generated_message_descriptor_data());
+        messages.push(ImageQuality_Message_old::generated_message_descriptor_data());
+        messages.push(ImageQuality_Message_new::generated_message_descriptor_data());
         let mut enums = ::std::vec::Vec::new();
+        enums.push(ImageQuality_old::generated_enum_descriptor_data());
+        enums.push(ImageQuality_new::generated_enum_descriptor_data());
         ::protobuf::reflect::GeneratedFileDescriptor::new_generated(
             file_descriptor_proto(),
             deps,

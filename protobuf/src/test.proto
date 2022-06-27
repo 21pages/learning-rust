@@ -25,3 +25,25 @@ message Msg3 {
   }
   int32 b = 4;
 }
+
+enum ImageQuality_old {
+  NotSet = 0;
+  Low = 2;
+  Balanced = 3;
+  Best = 4;
+}
+
+enum ImageQuality_new {
+  NotSet = 0;
+  Low = 50;
+  Balanced = 66;
+  Best = 100;
+}
+
+message ImageQuality_Message_old {
+  ImageQuality_old quality = 1; 
+}
+
+message ImageQuality_Message_new {
+  ImageQuality_new quality = 1; 
+}
